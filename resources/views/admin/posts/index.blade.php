@@ -34,7 +34,13 @@
             <tr>
                 <th scope="row">{{ $p->id }}</th>
                 <td>{{ $p->title }}</td>
-                <td>{{ $p->category_id }}</td>
+                <td>
+                    @if($p->category)
+                    <a href="#" class="badge badge-{{ $p->category->color }}">{{ $p->category->label }}</a>
+                    @else
+                    ---
+                    @endif
+                </td>
                 <td>
                     {{ $p->is_published ? 'Pubblicato' : 'Non pubblicato' }}
                     <form action="{{ route('admin.posts.toggle', $p->id) }}" method="POST">
