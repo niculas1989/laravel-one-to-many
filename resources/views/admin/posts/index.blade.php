@@ -21,7 +21,8 @@
         <thead>
             <tr>
                 <th scope="col">#</th>
-                <th scope="col">Title</th>
+                <th scope="col">Titolo</th>
+                <th scope="col">Categoria</th>
                 <th scope="col">Pubblicato</th>
                 <th scope="col">Creato il:</th>
                 <th scope="col">Modificato il:</th>
@@ -33,6 +34,7 @@
             <tr>
                 <th scope="row">{{ $p->id }}</th>
                 <td>{{ $p->title }}</td>
+                <td>{{ $p->category_id }}</td>
                 <td>
                     {{ $p->is_published ? 'Pubblicato' : 'Non pubblicato' }}
                     <form action="{{ route('admin.posts.toggle', $p->id) }}" method="POST">
