@@ -59,7 +59,7 @@
                     <select class="form-control w-100" id="category" name="category_id">
                         <option value="">--</option>
                         @foreach($categories as $c)
-                        <option @if(old('category_id')==$c->id) selected @endif value="{{ $c->id }}">{{ $c->label }}</option>
+                        <option @if(old('category_id', $post->category_id)==$c->id) selected @endif value="{{ $c->id }}">{{ $c->label }}</option>
                         @endforeach
                     </select>
                 </div>
