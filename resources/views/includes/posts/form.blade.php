@@ -53,7 +53,16 @@
             <div class="col 2">
                 <img src="{{ old('image', $post->image) ?? 'http://www.asdalcione.it/wp-content/uploads/2016/08/jk-placeholder-image-1.jpg'}}" alt="placeholder" width=50; class="img-fluid" id="preview">
             </div>
-            <div class="col-12 d-flex justify-content-end">
+            <div class="col-12 d-flex justify-content-between">
+                <div class="form-group">
+                    <label for="category" class="text-white">Seleziona la Categoria</label>
+                    <select class="form-control w-100" id="category" name="category_id">
+                        <option value="">--</option>
+                        @foreach($categories as $c)
+                        <option value="{{ $c->id }}">{{ $c->label }}</option>
+                        @endforeach
+                    </select>
+                </div>
                 <div class="form-check">
                     <input type="checkbox" class="form-check-input" name="is_published" id="is-published" {{ old('is_published', $post->is_published) ? 'checked' : ''}} />
                     <label class="form-check-label text-white" for="is-published">Pubblicato</label>
